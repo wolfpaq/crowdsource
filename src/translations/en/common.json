@@ -1,0 +1,23 @@
+{
+  "app": {
+    "name": "Crowdsource",
+    "about": "About",
+    "logout": "Logout"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "home": {
+    "project": "Project",
+    "projectHelpText": "Choose the project to upload files for"
+  },
+  "admin": {
+    "admin": "Admin",
+    "name": "Name",
+    "description": "Description",
+    "download": "Download",
+    "close": "Close",
+    "add": "Add Project"
+  }
+}

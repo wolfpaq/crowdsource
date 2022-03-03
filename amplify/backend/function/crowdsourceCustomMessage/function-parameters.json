@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "crowdsource",
+  "functionName": "crowdsourceCustomMessage",
+  "resourceName": "crowdsourceCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/Users/steve/.nvm/versions/node/v12.20.1/lib/node_modules/@aws-amplify/cli/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "crowdsourceCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "/",
+  "EMAILSUBJECT": "Crowdsource account confirmation",
+  "EMAILMESSAGE": "Click the link to confirm your email:",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

@@ -1,0 +1,24 @@
+type Project @model
+{
+  id: ID!
+  name: String!
+  description: String!
+  active: Boolean!
+}
+
+type Sound @model
+@key(name: "byProject", fields: ["projectId"])
+{
+  id: ID!
+  soundFile: String!
+  imageFile: String
+  fxName: String!
+  trackTitle: String!
+  micPerspective: String!
+  microphone: String!
+  recordingType: String!
+  categoryId: String!
+  location: String
+  notes: String
+  projectId: ID!
+}

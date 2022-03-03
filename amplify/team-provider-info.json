@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-crowdsource-dev-151558-authRole",
+      "UnauthRoleArn": "arn:aws:iam::647991784308:role/amplify-crowdsource-dev-151558-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::647991784308:role/amplify-crowdsource-dev-151558-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-crowdsource-dev-151558-deployment",
+      "UnauthRoleName": "amplify-crowdsource-dev-151558-unauthRole",
+      "StackName": "amplify-crowdsource-dev-151558",
+      "StackId": "arn:aws:cloudformation:us-west-2:647991784308:stack/amplify-crowdsource-dev-151558/4966a100-68fd-11ec-ac46-064ea27aebd9",
+      "AmplifyAppId": "d3863tk914z2gx",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-crowdsource-dev-151558-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "crowdsource": {}
+      },
+      "function": {
+        "crowdsourceCustomMessage": {
+          "REDIRECTURL": "/",
+          "EMAILSUBJECT": "Crowdsource account confirmation",
+          "EMAILMESSAGE": "Click the link to confirm your email:",
+          "deploymentBucketName": "amplify-crowdsource-dev-151558-deployment",
+          "s3Key": "amplify-builds/crowdsourceCustomMessage-787a7930415179765333-build.zip"
+        }
+      }
+    }
+  }
+}

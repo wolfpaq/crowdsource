@@ -1,0 +1,113 @@
+> amplify init
+? Enter a name for the project crowdsource
+The following configuration will be applied:
+
+Project information
+| Name: crowdsource
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: javascript
+| Javascript framework: react
+| Source Directory Path: src
+| Distribution Directory Path: build
+| Build Command: npm run-script build
+| Start Command: npm run-script start
+
+? Initialize the project with the above configuration? No
+? Enter a name for the environment dev
+? Choose your default editor: Visual Studio Code
+? Choose the type of app that you're building javascript
+Please tell us about your project
+? What javascript framework are you using react
+? Source Directory Path:  src
+? Distribution Directory Path: dist/crowdsource
+? Build Command:  npm run build
+? Start Command: npm run start
+Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
+
+===============================================================================
+
+> amplify add auth
+ Do you want to use the default authentication and security configuration? Manual configuration
+ Select the authentication/authorization services that you want to use: User Sign-Up, Sign-In, connected with AWS IAM controls (Enables per-user Storage featur
+es for images or other content, Analytics, and more)
+ Provide a friendly name for your resource that will be used to label this category in the project: crowdsource
+ Enter a name for your identity pool. crowdsource
+ Allow unauthenticated logins? (Provides scoped down permissions that you can control via AWS IAM) No
+ Do you want to enable 3rd party authentication providers in your identity pool? No
+ Provide a name for your user pool: crowdsource
+ Warning: you will not be able to edit these selections.
+ How do you want users to be able to sign in? Email
+ Do you want to add User Pool Groups? Yes
+? Provide a name for your user pool group: Administrators
+? Do you want to add another User Pool Group No
+✔ Sort the user pool groups in order of preference · Administrators
+ Do you want to add an admin queries API? No
+ Multifactor authentication (MFA) user login options: OFF
+ Email based user registration/forgot password: Enabled (Requires per-user email entry at registration)
+ Specify an email verification subject: Your verification code
+ Specify an email verification message: Your verification code is {####}
+ Do you want to override the default password policy for this User Pool? No
+ Warning: you will not be able to edit these selections.
+ What attributes are required for signing up? Email
+ Specify the app's refresh token expiration period (in days): 30
+ Do you want to specify the user attributes this app can read and write? No
+ Do you want to enable any of the following capabilities? Email Verification Link with Redirect
+ Do you want to use an OAuth flow? No
+? Do you want to configure Lambda Triggers for Cognito? No
+? Enter the URL that your users will be redirected to upon account confirmation: /
+? Enter the subject for your custom account confirmation email: Crowdsource account confirmation
+? Enter the body text for your custom account confirmation email (this will appear before the link URL): Click the link to confirm your email:
+
+===============================================================================
+
+> amplify add api
+? Select from one of the below mentioned services: GraphQL
+? Here is the GraphQL API that we will create. Select a setting to edit or continue Authorization modes: API key (default, expiration time: 7 days from now)
+? Choose the default authorization type for the API Amazon Cognito User Pool
+Use a Cognito user pool configured as a part of this project.
+? Configure additional auth types? No
+? Here is the GraphQL API that we will create. Select a setting to edit or continue Conflict detection (required for DataStore): Disabled
+? Enable conflict detection? No
+? Here is the GraphQL API that we will create. Select a setting to edit or continue Continue
+? Choose a schema template: One-to-many relationship (e.g., “Blogs” with “Posts” and “Comments”)
+
+Replace the schema in backend/api/grantco/schema.graphql with the following:
+
+type Project @model
+{
+  id: ID!
+  name: String!
+  description: String!
+  active: Boolean!
+  ///sounds: [Sound] @connection(keyName: "byProject", fields: ["id"])
+}
+
+type Sound @model
+@key(name: "byProject", fields: ["projectId"])
+{
+  id: ID!
+  soundFile: String!
+  imageFile: String
+  fxName: String!
+  trackTitle: String!
+  micPerspective: String!
+  microphone: String!
+  recordingType: String!
+  categoryId: String!
+  location: String
+  notes: String
+  projectId: ID!
+  ///project: Project @connection(fields: ["projectId"])
+}
+
+===============================================================================
+
+> amplify push
+? Do you want to generate code for your newly created GraphQL API Yes
+? Choose the code generation language target typescript
+? Enter the file name pattern of graphql queries, mutations and subscriptions src/graphql/**/*.ts
+? Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions Yes
+? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
+? Enter the file name for the generated code src/API.ts

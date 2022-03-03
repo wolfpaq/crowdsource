@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "crowdsource",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/steve/Projects/Kai/crowdsource/amplify/backend/api/crowdsource/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authcrowdsource"
+    }
+  }
+}
